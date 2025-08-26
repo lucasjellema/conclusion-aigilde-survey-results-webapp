@@ -1,0 +1,281 @@
+{
+  "title": "Conclusion AI Gilde Survey",
+  "description": "Het AI Gilde draait nu ruim anderhalf jaar. En hoewel leuk en best succesvol kan het natuurlijk beter. Hoe kunnen we het gilde verder vormgeven zodat het nog meer waarde biedt aan deelnemers - en aan collega's die nog niet of niet meer deelnemer zijn.  Met deze survey proberen we gezamenlijk naar inzicht in te creëren",
+  "steps": [
+    {
+      "id": "step1",
+      "title": "AI - Toepassen vs. Begrijpen/Ontwerpen/Maken",
+      "description": "Een vraag die zich aandient: hoe gaan we om met het verschil tussen collega's die (gen) AI willen (leren) toepassen en collega's die onder de motorkap willen duiken en zelf AI oplossingen willen selecteren, configureren, ontwerpen, ontwikkelen? Past dat in één gilde? Moet dat in afzonderlijke sessies? Kan dat bijvoorbeeld in agenda-blokken vóór en na het diner worden ingedeeld? \n Hoe kijk jij daar tegenaan?",
+      "backgroundImage": {
+        "url": "https://plus.unsplash.com/premium_photo-1676637656166-cb7b3a43b81a?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "opacity": "light",
+        "position": "center"
+      },
+      "questions": [
+        {
+          "id": "over_under_hood_radio",
+          "type": "radio",
+          "title": "Onderscheid boven en onder de AI motorkap",
+          "description": "Hoe denk jij dat we moeten omgaan met de verschillen in interesse, verwachting, diepgang en kennis?",
+          "options": [
+            {
+              "value": "net_als_nu",
+              "label": "Net als nu: gemengde agenda's met onderwerpen voor zowel de AI gebruikers als de AI ontwikkelaars"
+            },
+            {
+              "value": "apart",
+              "label": "Aparte sessies voor AI gebruikers (boven) en AI ontwikkelaars (onder de motorkap)"
+            },
+            {
+              "value": "verdeeld",
+              "label": "Sessies in een blok voor AI gebruikers/toepassers en een blok voor AI ontwikkelaars (bijvoorbeeld voor en na het diner)"
+            },
+            {
+              "value": "other",
+              "label": "Anders, namelijk..."
+            }
+          ]
+        },
+        {
+          "id": "motorkap_details",
+          "type": "longText",
+          "title": "Toelichting op insteek van AI Gilde (sessies)",
+          "description": "Hoe kijk jij aan tegen de verschillende perspectieven rond Gen AI - van tactisch beschouwen, zelf toepassen tot configureren, ontwerpen, ontwikkelen?"
+        }
+      ]
+    },
+    {
+      "id": "step2",
+      "title": "Introductie op AI onderwerpen",
+      "description": "Aandacht voor de basisbegrippen en de '101' introducties van onderwerpen",
+      "questions": [
+        {
+          "id": "101Topics",
+          "type": "checkbox",
+          "title": "Introductie-Sessies",
+          "description": "Zouden we introducties moeten doen van onderwerpen en begrippen die nu vaak als bekend worden verondersteld maar dat voor veel van ons niet echt zijn? Een \"start bij de basis, 101\" over veel genoemde begrippen -  gericht op collega's die niet diep in de techniek zitten en ook niet uitgebreide Gen AI ervaring hebben. Over welke van deze onderwerpen zou jij wel eens een introductie-sessie willen zien?",
+          "required": false,
+          "options": [
+            {
+              "value": "basis",
+              "label": "Basisbegrippen als: Prompt, Context, Agent, Hallucinatie, (inference, LLM, SLM, fine tuning,..)"
+            },
+            {
+              "value": "nn",
+              "label": "Neural Networks en Deep Learning"
+            },
+            {
+              "value": "rag",
+              "label": "Retrieval Augmented Generation (RAG)"
+            },
+            {
+              "value": "vector",
+              "label": "Vector Databases en Semantic Vector Search en Document Embeddings"
+            },
+            {
+              "value": "graph",
+              "label": "Knowledge Graphs, Graph Databases, GraphRAG"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "id": "other_101",
+          "type": "longText",
+          "title": "Basis-intro over AI onderwerpen",
+          "description": "Hoe kijk jij aan tegen sessies waarin we de basisbegrippen en onderwerpen van AI bespreken? Wat zou je graag willen zien? Heb je zelf ideeën over onderwerpen die we zouden moeten behandelen? Heb je zelf ervaring met het geven van dergelijke introducties?"
+        }
+      ]
+    },
+    {
+      "id": "step3",
+      "title": "Handson Workshops",
+      "description": "Zelf aan de slag, op gang geholpen worden, uitproberen",
+      "questions": [
+        {
+          "id": "handsonTopics",
+          "type": "checkbox",
+          "title": "Handson Workshops",
+          "description": "Zouden we meer aan handson moeten doen? Aan de slag met AI tools en middelen (naast erover praten en er naar kijken?) Over welke onderwerpen zou jij wel eens een handson workshop willen bijwonen?",
+          "required": false,
+          "options": [
+            {
+              "value": "local_llm",
+              "label": "draai een Local LLM (of SLM) (hoe kom je aan een LLM, hoe kan je dat draaien, wat kan je ermeer?)"
+            },
+            {
+              "value": "fine_tuning",
+              "label": "Fine tuning van een model (voor een specifieke use case)"
+            },
+            {
+              "value": "agent",
+              "label": "Maak een AI Agent / Agentic workflow die een taak uitvoert (bijv. een web search, een document lezen, een samenvatting maken) met hulp van LLM en MCP Servers"
+            },
+            {
+              "value": "rag",
+              "label": "End to end opzetten van een eenvoudige RAG workflow"
+            },
+            {
+              "value": "audio",
+              "label": "Transcription - audio naar text (=> samenvatting, analyse, domein specifiek, meertalig)"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
+          ]
+        },
+        {
+          "id": "toelichting_workshops",
+          "type": "longText",
+          "title": "Ideeën over workshops en handson-sessies",
+          "description": "Wat zijn jouw verdere ideeën over handson workshops, tutorials en zelf-doen-sessies?"
+        }
+      ]
+    },
+    {
+      "id": "step4",
+      "title": "Communicatie en Logistiek",
+      "description": "Praktische zaken rond het gilde?",
+      "backgroundImage": {
+        "url": "https://images.unsplash.com/photo-1717501219526-5cef0a447f76?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "opacity": "medium",
+        "position": "bottom"
+      },
+      "questions": [
+        {
+          "id": "weekdag_voorkeur",
+          "type": "rankOptions",
+          "title": "Gilde Sessie Weekdag Voorkeur",
+          "description": "Geef de voorkeursvolgorde aan voor welke weekdagen jouw voorkeur hebben voor gildesessies.",
+          "rankOptions": {
+            "showScale": true,
+            "scaleLabels": {
+              "high": "Hoog",
+              "low": "Laag"
+            },
+            "options": [
+              {
+                "value": "maandag",
+                "label": "Maandag"
+              },
+              {
+                "value": "dinsdag",
+                "label": "Dinsdag"
+              },
+              {
+                "value": "woensdag",
+                "label": "Woensdag"
+              },
+              {
+                "value": "donderdag",
+                "label": "Donderdag"
+              },
+              {
+                "value": "vrijdag",
+                "label": "Vrijdag"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gildeActiviteit",
+          "type": "matrix2d",
+          "title": "Visite",
+          "description": "Welke van de volgende bezoek je wel eens?",
+          "matrix": {
+            "rows": [
+              {
+                "id": "sessie",
+                "label": "Gilde Sessie",
+                "description": "Bijeenkomsten van het AI Gilde - online of fysiek."
+              },
+              {
+                "id": "viva",
+                "label": "Viva Engage Community ",
+                "description": "De Viva Engage Community van het AI Gilde is een online community voor AI ontwikkelaars waar we artikelen, bevindingen, discussieonderwerpen, agenda en verslag van gilde sessies delen."
+              },
+              {
+                "id": "teams",
+                "label": "MS Teams omgeving",
+                "description": "De MS Teams omgeving van het AI Gilde is een digitale werkruimte en archief waar we samenwerken, communiceren en informatie delen."
+              }
+            ],
+            "columns": [
+              {
+                "id": "nooit",
+                "label": "Nooit geweest",
+                "description": "Nog niet bezocht"
+              },
+              {
+                "id": "eens",
+                "label": "Wel Eens",
+                "description": "Een keertje gezien"
+              },
+              {
+                "id": "afentoe",
+                "label": "Af en Toe"
+              },
+              {
+                "id": "vaak",
+                "label": "Vaak"
+              }
+            ],
+            "allowMultiple": true
+          }
+        }  ,      {
+          "id": "communicatie",
+          "type": "longText",
+          "title": "Tips over communicatie",
+          "description": "Heb jij tips over de communicatie over het gilde? Hoe kunnen we beter communiceren over de gilde sessies, de Viva Engage community, de MS Teams omgeving? Wat zou jij graag anders zien? Heb je tips over hoe we beter kunnen communiceren over de gilde sessies, de Viva Engage community, de MS Teams omgeving? Wat zou jij graag anders zien? "
+        }
+      ]
+    },
+    {
+      "id": "step4",
+      "title": "Jouw betrokkenheid bij het AI Gilde",
+      "description": "Welke rol wil jij spelen in het AI Gilde?",
+      "questions": [
+        {
+          "id": "jouw_rol",
+          "type": "checkbox",
+          "title": "Actief betrokken bij het AI Gilde",
+          "description": "Op welke manier wil jij betrokken zijn bij het AI Gilde ?",
+          "required": true,
+          "options": [
+            {
+              "value": "coordinatie",
+              "label": "Helpen met organisatie en coördinatie van gilde sessies"
+            },
+            {
+              "value": "sprekers",
+              "label": "Helpen zoeken en regelen van sprekers voor gilde sessies"
+            },
+            {
+              "value": "spreken",
+              "label": "Zelf een presentatie of workshop geven"
+            },
+            {
+              "value": "communicatie",
+              "label": "Helpen met communicatie over het gilde (Viva Engage, MS Teams, binnen je eigen bedrijf etc.)"
+            },
+            {
+              "value": "other",
+              "label": "Anders, namelijk..."
+            }
+          ],
+          "allowComment": true
+        },
+        {
+          "id": "toelichting_jouwrol",
+          "type": "longText",
+          "title": "Toelichting op jouw rol in het AI Gilde",
+          "description": "Wat zou jij graag willen doen in het AI Gilde? Heb je specifieke ideeën over hoe jij betrokken wilt zijn?"
+        }
+      ]
+    }
+  ]
+}
