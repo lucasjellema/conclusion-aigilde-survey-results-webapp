@@ -22,7 +22,7 @@ const ELEMENT_IDS = {
 
 // Constants for default survey
 const DEFAULT_SURVEY = {
-  path: 'js/data/conclusionCloudSurvey.json'
+  path: 'js/data/conclusionAIGildeSurvey.json'
 };
 
 // Survey state

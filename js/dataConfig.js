@@ -7,4 +7,5 @@ export const deltaEndpoint = "https://odzno3g32mjesdrjipad23mbxq.apigateway.eu-a
 export const adminEndpoint = "https://odzno3g32mjesdrjipad23mbxq.apigateway.eu-amsterdam-1.oci.customer-oci.com/conclusion-admin-proxy/survey-admin";
 
 
+
 export const surveySummaryEndpoint = "https://odzno3g32mjesdrjipad23mbxq.apigateway.eu-amsterdam-1.oci.customer-oci.com/conclusion-proxy/aigilde-survey-total-result";
