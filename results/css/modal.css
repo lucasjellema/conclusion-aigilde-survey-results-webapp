@@ -192,6 +192,36 @@
     color: #444;
 }
 
+/* Styles for the other values popup list */
+.other-values-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.other-values-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-values-list li:last-child {
+    border-bottom: none;
+}
+
+.other-values-list .respondent-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.other-values-list .other-value-text {
+    color: #555;
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
 .clickable-stat {
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -260,7 +290,7 @@
     min-width: 36px;
     height: 36px;
     border: 1px solid #ddd;
-    background-color: #fff;
+    background-colorX: #fff;
     border-radius: 4px;
     display: flex;
     align-items: center;
