@@ -85,8 +85,8 @@ export async function getResults(forceRefresh = false) {
                     // If already an array, just return it
                     console.log('Using responses as is:', apiData);
                 } else if (typeof apiData === 'object') {
-                    // If it's an object, convert to array
-                    apiData = Object.values(apiData);
+                    // If it's an object, convert to array and add the key of each
+                    apiData = Object.entries(apiData).map(([key, value]) => ({ name:key, ...value }));
 
                 } else {
                     console.error('Unexpected format for responses:', apiData);
@@ -94,8 +94,8 @@ export async function getResults(forceRefresh = false) {
                 }
                 // for all objects in apiData that contain a property bedrijf but not a property label, derive label from bedrijf
                 apiData.forEach(item => {
-                    if (item.bedrijf && !item.label) {
-                        item.label = item.bedrijf;
+                    if (item.name && !item.label) {
+                        item.label = item.name;
                     }
                 });
 

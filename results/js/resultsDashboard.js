@@ -780,6 +780,12 @@ function renderQuestionResult(question, results) {
     
     // Extract responses for this question
     const questionResponses = results.map(response => {
+            if (question.type == "longText") {
+                return response.responses && response.responses[question.id]
+                    ? response.responses[question.id].value
+                      + `(${response.label})`
+                    : null;
+            }
         return response.responses && response.responses[question.id] 
             ? response.responses[question.id].value 
             : null;
