@@ -216,6 +216,7 @@ export function aggregateCheckboxResponses(responses, question, responseLabels =
     // Count occurrences of each option
     const counts = {};
     const tooltips = {}; // To store tooltip labels for each value
+    const otherValuesDetails = {}; // To store otherValue and respondent names
 
     let totalResponses = responses.length;
 
@@ -224,7 +225,9 @@ export function aggregateCheckboxResponses(responses, question, responseLabels =
         question.options.forEach(option => {
             counts[option.value] = 0;
             tooltips[option.value] = '';
-
+            if (option.value === 'other') {
+                otherValuesDetails['other'] = [];
+            }
         });
     }
 
@@ -240,18 +243,19 @@ export function aggregateCheckboxResponses(responses, question, responseLabels =
                 } else if (value && value.isOther && value.otherValue) {
                     counts['other'] = (counts['other'] || 0) + 1;
                     tooltips['other'] = tooltips['other'] + ', ' + responseLabels[index]; // Use responseLabels if provided
-
+                    otherValuesDetails['other'].push({ respondent: responseLabels[index], value: value.otherValue });
                 }
             });
         } else if (typeof response === 'object' && response !== null) {
-            // Object format: { option1: true, option2: true }
-            Object.entries(response).forEach(([key, value]) => {
-                if (value === true && key !== 'other') {
+            // Object format: { option1: true, option2: true, other: { isOther: true, otherValue: '...' } }
+            Object.entries(response).forEach(([key, val]) => {
+                if (val === true && key !== 'other') {
                     counts[key] = (counts[key] || 0) + 1;
                     tooltips[key] = tooltips[key] + ', ' + responseLabels[index]; //
-                } else if (key === 'other' && (value === true || typeof value === 'string')) {
+                } else if (key === 'other' && typeof val === 'object' && val.isOther && val.otherValue) {
                     counts['other'] = (counts['other'] || 0) + 1;
                     tooltips['other'] = tooltips['other'] + ', ' + responseLabels[index];
+                    otherValuesDetails['other'].push({ respondent: responseLabels[index], value: val.otherValue });
                 }
             });
         }
@@ -285,8 +289,9 @@ export function aggregateCheckboxResponses(responses, question, responseLabels =
         labels,
         data,
         percentages,
-        totalResponses, tooltipLabels
-
+        totalResponses,
+        tooltipLabels,
+        otherValuesDetails
     };
 }
 

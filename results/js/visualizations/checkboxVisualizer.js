@@ -8,6 +8,83 @@
 
 import { aggregateCheckboxResponses } from '../resultsDataService.js';
 
+// Ensure Chart.js is loaded
+if (typeof Chart === 'undefined') {
+    console.error('Chart.js is not loaded. Please ensure chart.js is included before this script.');
+}
+
+// Add modal HTML to the body if it doesn't exist
+if (!document.getElementById('otherValuesModal')) {
+    const modalHtml = `
+        <div id="otherValuesModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="otherValuesModalTitle">Other Values</h3>
+                    <span class="close-button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <ul id="otherValuesList" class="other-values-list">
+                        <!-- Other values will be inserted here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
+
+// Get the modal elements
+const otherValuesModal = document.getElementById('otherValuesModal');
+const otherValuesModalTitle = document.getElementById('otherValuesModalTitle');
+const otherValuesList = document.getElementById('otherValuesList');
+const closeButton = otherValuesModal ? otherValuesModal.querySelector('.close-button') : null;
+
+// Close the modal when the close button is clicked
+if (closeButton) {
+    closeButton.onclick = function() {
+        otherValuesModal.style.display = 'none';
+    };
+}
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target === otherValuesModal) {
+        otherValuesModal.style.display = 'none';
+    }
+};
+
+/**
+ * Displays a modal with a list of "other" values and their associated respondents.
+ * @param {string} title - The title for the modal.
+ * @param {Array<Object>} otherValues - An array of objects, each with 'respondent' and 'value' properties.
+ */
+function showOtherValuesModal(title, otherValues) {
+    if (!otherValuesModal || !otherValuesModalTitle || !otherValuesList) {
+        console.error('Modal elements not found.');
+        return;
+    }
+
+    otherValuesModalTitle.textContent = title;
+    otherValuesList.innerHTML = ''; // Clear previous list
+
+    if (otherValues && otherValues.length > 0) {
+        otherValues.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span class="respondent-name">${item.respondent}:</span>
+                <span class="other-value-text">${item.value}</span>
+            `;
+            otherValuesList.appendChild(listItem);
+        });
+    } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'No "other" values found for this option.';
+        otherValuesList.appendChild(listItem);
+    }
+
+    otherValuesModal.style.display = 'flex'; // Use flex to center the modal content
+}
+
 /**
  * Create a visualization for checkbox question responses
  * @param {HTMLElement} container - The DOM element to render the chart in
@@ -155,7 +232,22 @@ function renderBarChart(container, data, question, horizontal = false) {
     };
     
     // Create chart
-    new Chart(canvas, config);
+    const chart = new Chart(canvas, config);
+
+    // Add click event listener to the chart
+    canvas.onclick = function(evt) {
+        const activePoints = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+        if (activePoints.length > 0) {
+            const firstPoint = activePoints[0];
+            const dataIndex = firstPoint.index;
+            const label = data.labels[dataIndex];
+
+            // Check if the clicked label is 'Other' and if there are otherValuesDetails
+            if ( data.otherValuesDetails && data.otherValuesDetails['other']) {
+                showOtherValuesModal(`Details for "${label}"`, data.otherValuesDetails['other']);
+            }
+        }
+    };
 }
 
 /**
@@ -273,7 +365,22 @@ function renderStackedBarChart(container, data, question) {
     };
     
     // Create chart
-    new Chart(canvas, config);
+    const chart = new Chart(canvas, config);
+
+    // Add click event listener to the chart
+    canvas.onclick = function(evt) {
+        const activePoints = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+        if (activePoints.length > 0) {
+            const firstPoint = activePoints[0];
+            const dataIndex = firstPoint.index;
+            const label = data.labels[dataIndex];
+
+            // Check if the clicked label is 'Other' and if there are otherValuesDetails
+            if (label === 'Other' && data.otherValuesDetails && data.otherValuesDetails['other']) {
+                showOtherValuesModal(`Details for "${label}"`, data.otherValuesDetails['other']);
+            }
+        }
+    };
 }
 
 /**
@@ -360,7 +467,22 @@ function renderRadarChart(container, data, question) {
     };
     
     // Create chart
-    new Chart(canvas, config);
+    const chart = new Chart(canvas, config);
+
+    // Add click event listener to the chart
+    canvas.onclick = function(evt) {
+        const activePoints = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+        if (activePoints.length > 0) {
+            const firstPoint = activePoints[0];
+            const dataIndex = firstPoint.index;
+            const label = data.labels[dataIndex];
+
+            // Check if the clicked label is 'Other' and if there are otherValuesDetails
+            if (label === 'Other' && data.otherValuesDetails && data.otherValuesDetails['other']) {
+                showOtherValuesModal(`Details for "${label}"`, data.otherValuesDetails['other']);
+            }
+        }
+    };
 }
 
 /**
